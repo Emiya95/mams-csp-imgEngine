@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yanhua</groupId>
+    <artifactId>engine</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>mams-csp-imgEngine</name>
+    <description>image engine</description>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.6.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!--win-->
+        <java.home>C:\Program Files\Java\jdk1.8.0_241</java.home>
+        <path.separator>;</path.separator>
+        <!--linux-->
+<!--        <java.home>/usr/local/java/jdk-11.0.5</java.home>-->
+<!--        <path.separator>:</path.separator>-->
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>2.9.8</version>
+        </dependency>
+
+        <!--thymeleaf模板依赖(内含spring-boot-starter-web)-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+        <!--配置opencv的依赖-->
+        <!--放到本地maven库就不需要在resource的OpenCV包下的jar，也不需要加载到项目的lib库中-->
+<!--        <dependency>-->
+<!--            <groupId>org.opencv</groupId>-->
+<!--            <artifactId>opencv</artifactId>-->
+<!--            <version>3.4.1</version>-->
+<!--            &lt;!&ndash;<systemPath>${opencv.path}</systemPath>&ndash;&gt;-->
+<!--            &lt;!&ndash;<scope>system</scope>&ndash;&gt;-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.bytedeco</groupId>-->
+<!--            <artifactId>javacv</artifactId>-->
+<!--            <version>1.4.1</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv-platform</artifactId>
+            <version>1.5.3</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>javacv</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>ffmpeg-platform</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>flycapture-platform</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>tesseract-platform</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>libdc1394-platform</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>libfreenect-platform</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>libfreenect2-platform</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>videoinput-platform</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>librealsense-platform</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>librealsense2-platform</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>artoolkitplus-platform</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>flandmark-platform</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bytedeco</groupId>
+                                <artifactId>leptonica-platform</artifactId>
+                            </exclusion>
+                        </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv</artifactId>
+            <version>1.5.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.bytedeco</groupId>
+                    <artifactId>javacpp</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bytedeco.javacpp-presets</groupId>
+                    <artifactId>flycapture</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bytedeco.javacpp-presets</groupId>
+                    <artifactId>libdc1394</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bytedeco.javacpp-presets</groupId>
+                    <artifactId>libfreenect</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bytedeco.javacpp-presets</groupId>
+                    <artifactId>libfreenect2</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bytedeco.javacpp-presets</groupId>
+                    <artifactId>librealsense</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bytedeco.javacpp-presets</groupId>
+                    <artifactId>videoinput</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bytedeco.javacpp-presets</groupId>
+                    <artifactId>tesseract</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bytedeco.javacpp-presets</groupId>
+                    <artifactId>leptonica</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bytedeco.javacpp-presets</groupId>
+                    <artifactId>flandmark</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bytedeco.javacpp-presets</groupId>
+                    <artifactId>artoolkitplus</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- 调用ImageMagick和GraphicsMagick的工具包 -->
+        <dependency>
+            <groupId>org.im4java</groupId>
+            <artifactId>im4java</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>0.4.8</version>
+        </dependency>
+
+
+<!--        <dependency>-->
+<!--            <groupId>fakepath</groupId>-->
+<!--            <artifactId>llmin_common</artifactId>-->
+<!--            <version>1.0.1</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-devtools</artifactId>-->
+<!--            <scope>runtime</scope>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.junit.vintage</groupId>-->
+<!--                    <artifactId>junit-vintage-engine</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+        </dependency>
+        <!--新boot版本不在支持log4j, 而需要使用log4j2-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.1.6.RELEASE</version>
+<!--                <configuration>-->
+<!--                    <encoding>UTF-8</encoding>-->
+<!--                    <compilerArguments>-->
+<!--                        <verbose />-->
+<!--                        <bootclasspath>${java.home}\jre\lib\rt.jar;${java.home}\jre\lib\jce.jar</bootclasspath>-->
+<!--                    </compilerArguments>-->
+<!--                </configuration>-->
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+<!--                    <source>${java-version}</source>-->
+<!--                    <target>${java-version}</target>-->
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <verbose/>
+                        <bootclasspath>${java.home}/jre/lib/rt.jar${path.separator}${java.home}/jre/lib\jce.jar</bootclasspath>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

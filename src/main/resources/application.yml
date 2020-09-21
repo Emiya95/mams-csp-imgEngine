@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: dev
+server:
+  max-http-header-size: 8096
+  tomcat:
+    uri-encoding: UTF-8
+    basedir: ./tmp/mams-img-tomcat-tmp
+#    connection-timeout: 80000
+#    max-threads: 1 #最大线程数，默认200
+#    accept-count: 1 #挂起的最大连接数，默认100，最终会体现在这里 public abstract ServerSocketChannel bind(SocketAddress local, int backlog) throws IOException; socket.listen(backlog)，也就是server在不能执行accept()之前，能监听的client的最大数量
+#    max-connections: 1 #最大连接数,默认10000，tomcat内tcp连接池的大小
+#    connection-timeout: 1  #server端的socket超时间，默认60s, client端设置keepAlive或者server端tcp状态为CLOSE_WAIT(比如client先close)，server端判断client端没有读写并且超时时会close掉当前的socket
+    #  remote-ip-header: x-forward-for
+    #  uri-encoding: UTF-8
+    #  max-threads: 100
+    #  background-processor-delay:
+  port: 18722
+#  port: 8089
+  servlet:
+    context-path: /api
+

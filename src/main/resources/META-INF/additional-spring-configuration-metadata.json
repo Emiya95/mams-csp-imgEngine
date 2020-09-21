@@ -1,0 +1,113 @@
+{
+  "properties": [
+    {
+      "name": "application.name",
+      "type": "java.lang.String",
+      "description": "Description for application.name."
+    },
+    {
+      "name": "application.name",
+      "type": "java.lang.String",
+      "description": "Description for application.name."
+    },
+    {
+      "name": "servlet.session.timeout",
+      "type": "java.lang.String",
+      "description": "Description for servlet.session.timeout."
+    },
+    {
+      "name": "magick.graphicsMagick.path",
+      "type": "java.lang.String",
+      "description": "Description for magick.graphicsMagick.path."
+    },
+    {
+      "name": "magick.imageMagick.path",
+      "type": "java.lang.String",
+      "description": "Description for magick.imageMagick.path."
+    },
+    {
+      "name": "opencv.dll.path",
+      "type": "java.lang.String",
+      "description": "Description for opencv.dll.path."
+    },
+    {
+      "name": "magick.graphicsMagick",
+      "type": "java.lang.String",
+      "description": "Description for magick.graphicsMagick."
+    },
+    {
+      "name": "magick.imageMagick",
+      "type": "java.lang.String",
+      "description": "Description for magick.imageMagick."
+    },
+    {
+      "name": "logo.file",
+      "type": "java.lang.String",
+      "description": "Description for logo.file."
+    },
+    {
+      "name": "magick.useGraphics",
+      "type": "java.lang.String",
+      "description": "Description for magick.useGraphics."
+    },
+    {
+      "name": "iamge.libraryPath",
+      "type": "java.lang.String",
+      "description": "Description for iamge.libraryPath."
+    },
+    {
+      "name": "iamge.logoFile",
+      "type": "java.lang.String",
+      "description": "Description for iamge.logoFile."
+    },
+    {
+      "name": "image.blackLogoFile",
+      "type": "java.lang.String",
+      "description": "Description for image.blackLogoFile."
+    },
+    {
+      "name": "image.useGraphics",
+      "type": "java.lang.String",
+      "description": "Description for image.useGraphics."
+    },
+    {
+      "name": "image.graphicsMagickPath",
+      "type": "java.lang.String",
+      "description": "Description for image.graphicsMagickPath."
+    },
+    {
+      "name": "image.imageMagickPath",
+      "type": "java.lang.String",
+      "description": "Description for image.imageMagickPath."
+    },
+    {
+      "name": "image.useWindows",
+      "type": "java.lang.String",
+      "description": "Description for image.useWindows."
+    },
+    {
+      "name": "image.logos[0].blackLogoFile",
+      "type": "java.lang.String",
+      "description": "Description for image.logos[0].blackLogoFile."
+    },
+    {
+      "name": "image.logos[0].whiteLogoFiles",
+      "type": "java.lang.String",
+      "description": "Description for image.logos[0].whiteLogoFiles."
+    },
+    {
+      "name": "image.logos[0].watermarkWidth",
+      "type": "java.lang.String",
+      "description": "Description for image.logos[0].watermarkWidth."
+    },
+    {
+      "name": "image.logos[0].watermarkHeight",
+      "type": "java.lang.String",
+      "description": "Description for image.logos[0].watermarkHeight."
+    },
+    {
+      "name": "image.logos",
+      "type": "java.lang.String",
+      "description": "Description for image.logos."
+    }
+  ] }

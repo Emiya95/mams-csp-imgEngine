@@ -1,0 +1,31 @@
+application:
+  name: mams-csp-imgEngine
+image:
+  libraryPath: /usr/lib64/libopencv_java341.so
+  logoPropertiesList:
+    - blackLogoFile: /opt/yanhua-erp-consumer-engine/logo/logoBlack.png
+      whiteLogoFile: /opt/yanhua-erp-consumer-engine/logo/logoWhite.png
+      watermarkWidth: 50
+      watermarkHeight: 17
+    - blackLogoFile: /opt/yanhua-erp-consumer-engine/logo/huilogo.png
+      whiteLogoFile: /opt/yanhua-erp-consumer-engine/logo/bailogo.png
+      watermarkWidth: 50
+      watermarkHeight: 17
+    - blackLogoFile: /opt/yanhua-erp-consumer-engine/logo/2013.bmp
+      whiteLogoFile: /opt/yanhua-erp-consumer-engine/logo/2013.bmp
+      watermarkWidth: 50
+      watermarkHeight: 17
+#  blackLogoFile: /opt/yanhua-erp-consumer-engine/logo/logoBlack.png
+#  whiteLogoFile: /opt/yanhua-erp-consumer-engine/logo/logoWhite.png
+  useGraphics: true
+  graphicsMagickPath: G://Program Files//GraphicsMagick-1.3.35-Q8
+  imageMagickPath: G://Program Files//ImageMagick-7.0.10-Q16
+  useWindows: true
+#  watermarkWidth: 50
+#  watermarkHeight: 17
+#magick:
+#  useGraphics: true
+#  graphicsMagick:
+#    path: G://Program Files//GraphicsMagick-1.3.35-Q8
+#  imageMagick:
+#    path: G://Program Files//ImageMagick-7.0.10-Q16
