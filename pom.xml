@@ -72,6 +72,13 @@
             <version>3.9</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.35</version>
+            <scope>compile</scope>
+        </dependency>
+
         <!--配置opencv的依赖-->
         <!--放到本地maven库就不需要在resource的OpenCV包下的jar，也不需要加载到项目的lib库中-->
 <!--        <dependency>-->

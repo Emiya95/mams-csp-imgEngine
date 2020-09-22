@@ -10,22 +10,17 @@
  */
 package com.yanhua.engine.controller;
 
+import com.yanhua.engine.common.dto.ResponseResult;
 import com.yanhua.engine.common.Result;
 import com.yanhua.engine.common.ResultFactory;
 import com.yanhua.engine.pojo.ImageInfo;
 import com.yanhua.engine.service.MagickProcessingService;
-import com.yanhua.engine.service.OpenCvProcessingService;
-import com.yanhua.engine.service.impl.MagickProcessingServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
-import java.util.Objects;
 
 /**
  * 〈功能简述〉<br>
@@ -37,6 +32,7 @@ import java.util.Objects;
  */
 @RestController
 @RequestMapping("/magick")
+@ResponseResult
 public class MagickProcessController {
     @Autowired
     private MagickProcessingService magickProcessingService;
@@ -44,16 +40,8 @@ public class MagickProcessController {
     private static final Logger log = LogManager.getLogger(MagickProcessController.class);
 
     @RequestMapping(value = "/resizeLock",method = RequestMethod.POST)
-    @ResponseBody
-    public Result getImage(@RequestBody @Valid ImageInfo imageInfo , BindingResult results)  {
-        if (results.hasErrors()){
-            List<FieldError> fieldErrors = results.getFieldErrors();
-            fieldErrors.forEach(fieldError -> {
-                //日志打印不符合校验的字段名和错误提示
-                log.error("----------------------->请求参数error field is : {} ,message is : {}", fieldError.getField(), fieldError.getDefaultMessage());
-            });
-            return ResultFactory.toResult("1000", Objects.requireNonNull(results.getFieldError()).getDefaultMessage());
-        }
+    @ResponseResult
+    public Result getImage(@RequestBody @Valid ImageInfo imageInfo )  throws Exception{
         if (magickProcessingService.compressLock(imageInfo.getLogoNum(),imageInfo.getPosition(),imageInfo.getWidth(),imageInfo.getHeight(),imageInfo.getSourceFile()
                 ,imageInfo.getDesFile(),imageInfo.getQuality(),imageInfo.getDesFileSize())){
             return ResultFactory.toResult("0000","success");
@@ -62,30 +50,27 @@ public class MagickProcessController {
     }
 
     @RequestMapping(value = "/resizeUnlock",method = RequestMethod.POST)
-    @ResponseBody
-    public Result getImage2(@RequestBody @Valid ImageInfo imageInfo , BindingResult results) {
-        if (results.hasErrors()){
-            List<FieldError> fieldErrors = results.getFieldErrors();
-            fieldErrors.forEach(fieldError -> {
-                //日志打印不符合校验的字段名和错误提示
-                log.error("----------------------->请求参数error field is : {} ,message is : {}", fieldError.getField(), fieldError.getDefaultMessage());
-            });
-            return ResultFactory.toResult("1000", Objects.requireNonNull(results.getFieldError()).getDefaultMessage());
-        }
+    @ResponseResult
+    public Result getImage2(@RequestBody @Valid ImageInfo imageInfo ) throws Exception {
         if (magickProcessingService.compressUnlock(imageInfo.getLogoNum(),imageInfo.getWidth(),imageInfo.getHeight(),imageInfo.getSourceFile()
                 ,imageInfo.getDesFile(),imageInfo.getQuality(),imageInfo.getDesFileSize())){
+//            int kk = 2/0;
+//            return true;
             return ResultFactory.toResult("0000","success");
         }
         return ResultFactory.toResult("2001","fail");
+//        return false;
     }
 
     //-----------------------------------------------------------------------------------------------------------------------
 
     @RequestMapping(value = "/test",method = RequestMethod.GET)
-    public String test() {
+    @ResponseResult
+    @ResponseBody
+    public String test() throws Exception {
 
-//        boolean ret2 = magickProcessingService.compressLock(1,1,640,200,"F:\\jiguang\\chenqingling\\h.jpg","F:\\picjg\\ret12.jpg",100, 100L);
-        boolean ret2 = magickProcessingService.compressLock(0,0,640,360,"/opt/yanhua-erp-consumer-engine/pic/h.jpg","/opt/yanhua-erp-consumer-engine/picjg/ret1.jpg",100, 100L);
+        boolean ret2 = magickProcessingService.compressLock(1,1,640,200,"F:\\jiguang\\chenqingling\\h.jpg","F:\\picjg\\ret12.jpg",100, 100L);
+//        boolean ret2 = magickProcessingService.compressLock(0,0,640,360,"/opt/yanhua-erp-consumer-engine/pic/h.jpg","/opt/yanhua-erp-consumer-engine/picjg/ret1.jpg",100, 100L);
 
         System.out.println("ret2="+ret2);
         return "hello emiya!"+ret2;

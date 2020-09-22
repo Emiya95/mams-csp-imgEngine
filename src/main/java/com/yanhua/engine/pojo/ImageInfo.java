@@ -63,9 +63,9 @@ public class ImageInfo {
      * 选择压缩方式
      */
 //    @Size(max = 1,min = 0,message = "压缩方式不能为空")
-    @Min(value = 0,message = "压缩方式不能33333为空")
+    @Min(value = 0,message = "压缩方式不能为空")
     @Max(value = 1,message = "压缩方式不能为空")
-    @NotNull
+    @NotNull(message = "压缩方式不能为空")
     private Integer choice;
 
     /**
